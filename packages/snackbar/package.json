@@ -1,0 +1,78 @@
+{
+  "name": "@nexim/snackbar",
+  "version": "0.0.0",
+  "description": "A customizable snackbar component for displaying brief messages to users, with state management and animation utilities.",
+  "keywords": [
+    "snackbar",
+    "notification",
+    "web-component",
+    "typescript",
+    "nexim"
+  ],
+  "homepage": "https://github.com/the-nexim/nanolib/tree/next/packages/snackbar#readme",
+  "bugs": {
+    "url": "https://github.com/the-nexim/nanolib/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/the-nexim/nanolib",
+    "directory": "packages/snackbar"
+  },
+  "license": "AGPL-3.0-only",
+  "author": "S. Amir Mohammad Najafi <njfamirm@gmail.com> (www.njfamirm.ir)",
+  "contributors": [
+    "Arash Ghardashpoor <arash.qardashpoor@gmail.com> (https://www.agpagp.ir)"
+  ],
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/main.d.ts",
+      "import": "./dist/main.mjs",
+      "require": "./dist/main.cjs"
+    }
+  },
+  "main": "./dist/main.cjs",
+  "module": "./dist/main.mjs",
+  "types": "./dist/main.d.ts",
+  "files": [
+    "**/*.{js,mjs,cjs,map,d.ts,html,md,LEGAL.txt}",
+    "LICENSE",
+    "!**/*.test.js",
+    "!demo/**/*"
+  ],
+  "scripts": {
+    "b": "yarn run build",
+    "build": "yarn run build:ts && yarn run build:es",
+    "build:es": "nano-build --preset=module",
+    "build:ts": "tsc --build",
+    "c": "yarn run clean",
+    "cb": "yarn run clean && yarn run build",
+    "clean": "rm -rfv dist *.tsbuildinfo",
+    "d": "yarn run build:es && yarn node --enable-source-maps --trace-warnings",
+    "t": "yarn run test",
+    "test": "NODE_OPTIONS=\"$NODE_OPTIONS --enable-source-maps --experimental-vm-modules\" ava",
+    "w": "yarn run watch",
+    "watch": "yarn run watch:ts & yarn run watch:es",
+    "watch:es": "yarn run build:es --watch",
+    "watch:ts": "yarn run build:ts --watch --preserveWatchOutput"
+  },
+  "dependencies": {
+    "@alwatr/flux": "^4.0.2",
+    "@alwatr/logger": "^5.0.0",
+    "@alwatr/package-tracer": "^5.0.0",
+    "@alwatr/parse-duration": "^5.0.0",
+    "@alwatr/wait": "^1.1.16",
+    "@nexim/element": "workspace:^",
+    "lit": "^3.2.1"
+  },
+  "devDependencies": {
+    "@alwatr/nano-build": "^5.0.0",
+    "@alwatr/type-helper": "^5.0.0",
+    "@nexim/typescript-config": "workspace:^",
+    "ava": "^6.2.0",
+    "typescript": "^5.6.3"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
