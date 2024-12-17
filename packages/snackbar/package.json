@@ -62,13 +62,13 @@
     "@alwatr/package-tracer": "^5.0.0",
     "@alwatr/parse-duration": "^5.0.0",
     "@alwatr/wait": "^1.1.16",
-    "@nexim/element": "workspace:^",
+    "@nexim/element": "^1.0.6",
     "lit": "^3.2.1"
   },
   "devDependencies": {
     "@alwatr/nano-build": "^5.0.0",
     "@alwatr/type-helper": "^5.0.0",
-    "@nexim/typescript-config": "workspace:^",
+    "@nexim/typescript-config": "^1.0.1",
     "ava": "^6.2.0",
     "typescript": "^5.6.3"
   },
