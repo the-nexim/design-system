@@ -2775,6 +2775,39 @@ __metadata:
   languageName: node
   linkType: hard
 
+"design-system-monorepo@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "design-system-monorepo@workspace:."
+  dependencies:
+    "@lerna-lite/changed": "npm:^3.10.1"
+    "@lerna-lite/cli": "npm:^3.10.1"
+    "@lerna-lite/diff": "npm:^3.10.1"
+    "@lerna-lite/exec": "npm:^3.10.1"
+    "@lerna-lite/publish": "npm:^3.10.1"
+    "@lerna-lite/run": "npm:^3.10.1"
+    "@lerna-lite/version": "npm:^3.10.1"
+    "@nexim/eslint-config": "npm:^1.0.1"
+    "@nexim/prettier-config": "npm:^1.0.1"
+    "@nexim/typescript-config": "npm:^1.0.1"
+    "@types/node": "npm:^22.10.2"
+    "@typescript-eslint/eslint-plugin": "npm:^7.15.0"
+    "@typescript-eslint/parser": "npm:^7.15.0"
+    ava: "npm:^6.2.0"
+    conventional-changelog-conventionalcommits: "npm:^7.0.2"
+    eslint: "npm:^8.57.1"
+    eslint-import-resolver-typescript: "npm:^3.7.0"
+    eslint-plugin-import: "npm:^2.31.0"
+    eslint-plugin-require-extensions: "npm:^0.1.3"
+    prettier: "npm:^3.4.2"
+    prettier-plugin-packagejson: "npm:^2.5.6"
+    prettier-plugin-tailwindcss: "npm:^0.6.9"
+    typescript: "npm:^5.6.3"
+  dependenciesMeta:
+    prettier-plugin-tailwindcss@0.6.9:
+      unplugged: true
+  languageName: unknown
+  linkType: soft
+
 "detect-indent@npm:^7.0.1":
   version: 7.0.1
   resolution: "detect-indent@npm:7.0.1"
@@ -5122,39 +5155,6 @@ __metadata:
   checksum: 10c0/2cf48a2087175c60c8dcdbc619908b49c07f7adcfc37d29236b0c5c612d6204f789104c98cc44d38acab7b3c96f4a3ec2cfdc4934d0738d876dbefa2a12c69f4
   languageName: node
   linkType: hard
-
-"nanolib-monorepo@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "nanolib-monorepo@workspace:."
-  dependencies:
-    "@lerna-lite/changed": "npm:^3.10.1"
-    "@lerna-lite/cli": "npm:^3.10.1"
-    "@lerna-lite/diff": "npm:^3.10.1"
-    "@lerna-lite/exec": "npm:^3.10.1"
-    "@lerna-lite/publish": "npm:^3.10.1"
-    "@lerna-lite/run": "npm:^3.10.1"
-    "@lerna-lite/version": "npm:^3.10.1"
-    "@nexim/eslint-config": "npm:^1.0.1"
-    "@nexim/prettier-config": "npm:^1.0.1"
-    "@nexim/typescript-config": "npm:^1.0.1"
-    "@types/node": "npm:^22.10.2"
-    "@typescript-eslint/eslint-plugin": "npm:^7.15.0"
-    "@typescript-eslint/parser": "npm:^7.15.0"
-    ava: "npm:^6.2.0"
-    conventional-changelog-conventionalcommits: "npm:^7.0.2"
-    eslint: "npm:^8.57.1"
-    eslint-import-resolver-typescript: "npm:^3.7.0"
-    eslint-plugin-import: "npm:^2.31.0"
-    eslint-plugin-require-extensions: "npm:^0.1.3"
-    prettier: "npm:^3.4.2"
-    prettier-plugin-packagejson: "npm:^2.5.6"
-    prettier-plugin-tailwindcss: "npm:^0.6.9"
-    typescript: "npm:^5.6.3"
-  dependenciesMeta:
-    prettier-plugin-tailwindcss@0.6.9:
-      unplugged: true
-  languageName: unknown
-  linkType: soft
 
 "natural-compare@npm:^1.4.0":
   version: 1.4.0
