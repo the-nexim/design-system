@@ -21,7 +21,6 @@ jobs:
 
     permissions:
       contents: read
-      id-token: write
 
     steps:
       - name: ⤵️ Checkout repository
@@ -57,6 +56,6 @@ jobs:
           NODE_ENV: production
 
       - name: 🚀 Publish
-        run: npm publish --provenance --access public
+        run: yarn run publish --yes
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
