@@ -48,7 +48,7 @@ function createSnackbarElement(options: SnackbarOptions): SnackbarElement {
  */
 function handleActionButtonClick(closeSnackbar: () => Promise<void>): void {
   const actionButtonClickHandler = () => {
-    logger.logOther?.('Snackbar action button clicked.', event);
+    logger.logOther?.('Snackbar action button clicked.');
 
     return closeSnackbar();
   };

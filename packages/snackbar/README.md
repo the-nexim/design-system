@@ -10,7 +10,7 @@ This package provides a customizable snackbar component for displaying brief mes
 
 ## Overview
 
-`@nexim/snackbar` is a versatile library designed to provide a customizable snackbar component for displaying brief messages to users. It includes utilities for managing the snackbar's state and animations, ensuring efficiency and scalability in high-performance projects.
+Snackbar component. It includes utilities for managing the snackbar's state and animations.
 
 ## Installation
 
@@ -37,11 +37,9 @@ snackbarSignal.notify({
   // The following properties are optional.
   action: {
     label: 'Undo',
-    handler: () => {
-      console.log('Action button clicked');
-    },
+    signalId: 'undo-handler',
   },
-  duration: '4s',
+  duration: '5s',
   addCloseButton: true,
 });
 ```
