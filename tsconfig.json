@@ -8,18 +8,6 @@
   "exclude": [],
   "references": [
     {
-      "path": "./packages/element"
-    },
-    {
-      "path": "./packages/typescript-config"
-    },
-    {
-      "path": "./packages/alpine"
-    },
-    {
-      "path": "./packages/service-worker"
-    },
-    {
       "path": "./packages/snackbar"
     }
   ]

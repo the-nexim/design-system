@@ -1,6 +1,6 @@
-# ECMAScript Nano Libs
+# Nexim Design System
 
-This repository contains numerous small utility packages. These packages serve various useful purposes and are written in nano ESModule without any dependencies.
+List of components and utilities for building web applications with Nexim's design system powered by [Material Design 3](https://m3.material.io/).
 
 Here is a brief overview of the included libraries:
 

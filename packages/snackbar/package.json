@@ -9,13 +9,13 @@
     "typescript",
     "nexim"
   ],
-  "homepage": "https://github.com/the-nexim/nanolib/tree/next/packages/snackbar#readme",
+  "homepage": "https://github.com/the-nexim/design-system/tree/next/packages/snackbar#readme",
   "bugs": {
-    "url": "https://github.com/the-nexim/nanolib/issues"
+    "url": "https://github.com/the-nexim/design-system/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/the-nexim/nanolib",
+    "url": "https://github.com/the-nexim/design-system",
     "directory": "packages/snackbar"
   },
   "license": "AGPL-3.0-only",
