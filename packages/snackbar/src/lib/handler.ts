@@ -4,6 +4,7 @@ import {waitForTimeout} from '@alwatr/wait';
 
 import {snackbarActionButtonClickedSignal, snackbarSignal} from './signal.js';
 
+import type {SnackbarElement} from './element.js';
 import type {SnackbarOptions} from './type.js';
 
 const logger = createLogger(`${__package_name__}/handler`);
@@ -19,6 +20,47 @@ let closeLastSnackbar: (() => Promise<void>) | null = null;
 let unsubscribeActionButtonHandler: (() => void) | null = null;
 
 /**
+ * Create snackbar element with given options.
+ *
+ * @param options - Options for configuring the snackbar.
+ * @returns The created snackbar element.
+ */
+function createSnackbarElement(options: SnackbarOptions): SnackbarElement {
+  const element = document.createElement('snack-bar');
+  element.setAttribute('content', options.content);
+
+  if (options.addCloseButton === true) {
+    element.setAttribute('add-close-button', '');
+  }
+
+  if (options.action != null) {
+    element.setAttribute('action-button-label', options.action.label);
+  }
+
+  return element;
+}
+
+/**
+ * Handle action button click.
+ *
+ * @param options - Options for configuring the snackbar.
+ * @param closeSnackbar - Function to close the snackbar.
+ */
+function handleActionButtonClick(options: SnackbarOptions, closeSnackbar: () => Promise<void>): void {
+  const actionButtonClickHandler = (event: {id: string}) => {
+    if (event.id !== options.action!.id) return;
+    logger.logOther?.('Snackbar action button clicked.', event);
+
+    return closeSnackbar();
+  };
+
+  // Subscribe to the action button click
+  unsubscribeActionButtonHandler = snackbarActionButtonClickedSignal.subscribe(actionButtonClickHandler.bind(null), {
+    once: true,
+  }).unsubscribe;
+}
+
+/**
  * Displays the snackbar with the given options.
  *
  * @param options - Options for configuring the snackbar.
@@ -29,29 +71,7 @@ async function showSnackbar(options: SnackbarOptions): Promise<void> {
   // Set default duration if not provided
   options.duration ??= '5s';
 
-  const element = document.createElement('snack-bar');
-
-  element.setAttribute('content', options.content);
-
-  if (options.addCloseButton === true) {
-    element.setAttribute('add-close-button', '');
-  }
-
-  if (options.action != null) {
-    element.setAttribute('action-button-label', options.action.label);
-
-    const actionButtonClickHandler = (event: {id: string}) => {
-      if (event.id !== options.action!.id) return;
-      logger.logOther?.('Snackbar action button clicked.', event);
-
-      return closeSnackbar();
-    };
-
-    // Subscribe to the action button click
-    unsubscribeActionButtonHandler = snackbarActionButtonClickedSignal.subscribe(actionButtonClickHandler.bind(null), {
-      once: true,
-    }).unsubscribe;
-  }
+  const element = createSnackbarElement(options);
 
   let closed = false;
   const closeSnackbar = async () => {
@@ -62,6 +82,10 @@ async function showSnackbar(options: SnackbarOptions): Promise<void> {
     unsubscribeActionButtonHandler?.();
     closed = true;
   };
+
+  if (options.action != null) {
+    handleActionButtonClick(options, closeSnackbar);
+  }
 
   // Close the last snackbar if it exists
   await closeLastSnackbar?.();

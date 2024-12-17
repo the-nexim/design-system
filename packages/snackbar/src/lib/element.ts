@@ -3,17 +3,17 @@ import {LightDomMixin, LoggerMixin} from '@nexim/element';
 import {html, LitElement, nothing, type PropertyValues, type TemplateResult} from 'lit';
 import {customElement, property} from 'lit/decorators.js';
 
-import {snackbarActionButtonClickedSignal} from './handler.js';
+import {snackbarActionButtonClickedSignal} from './signal.js';
 import {waitForNextFrame} from './utils.js';
 
 declare global {
   interface HTMLElementTagNameMap {
-    'snack-bar': SnackbarComponent;
+    'snack-bar': SnackbarElement;
   }
 }
 
 @customElement('snack-bar')
-export class SnackbarComponent extends LightDomMixin(LoggerMixin(LitElement)) {
+export class SnackbarElement extends LightDomMixin(LoggerMixin(LitElement)) {
   /**
    * The content to be displayed inside the snackbar.
    */
@@ -52,7 +52,7 @@ export class SnackbarComponent extends LightDomMixin(LoggerMixin(LitElement)) {
 
     this.removeAttribute('open');
 
-    await waitForTimeout(SnackbarComponent.openAndCloseAnimationDuration__);
+    await waitForTimeout(SnackbarElement.openAndCloseAnimationDuration__);
     this.remove();
   }
 
