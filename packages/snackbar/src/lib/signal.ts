@@ -1,20 +1,11 @@
-import {AlwatrSignal} from '@alwatr/flux';
+import {AlwatrSignal, AlwatrTrigger} from '@alwatr/flux';
 
 import type {SnackbarOptions} from './type.js';
 
 /**
- * Signal triggered when the snackbar action button is clicked.
- *
- * This signal is used to notify listeners that the action button
- * on the snackbar component has been clicked. It can be used to
- * perform any necessary actions in response to the button click.
- *
- * @example
- * snackbarActionButtonClickedSignal.addListener(() => {
- *   console.log('Snackbar action button was clicked!');
- * });
+ * Signal triggered when the snackbar action button is clicked to close snackbar.
  */
-export const snackbarActionButtonClickedSignal = /* @__PURE__ */ new AlwatrSignal<{id: string}>({
+export const snackbarActionButtonClickedSignal = /* @__PURE__ */ new AlwatrTrigger({
   name: 'snackbar-action-button-clicked',
 });
 

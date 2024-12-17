@@ -46,9 +46,8 @@ function createSnackbarElement(options: SnackbarOptions): SnackbarElement {
  * @param options - Options for configuring the snackbar.
  * @param closeSnackbar - Function to close the snackbar.
  */
-function handleActionButtonClick(options: SnackbarOptions, closeSnackbar: () => Promise<void>): void {
-  const actionButtonClickHandler = (event: {id: string}) => {
-    if (event.id !== options.action!.id) return;
+function handleActionButtonClick(closeSnackbar: () => Promise<void>): void {
+  const actionButtonClickHandler = () => {
     logger.logOther?.('Snackbar action button clicked.', event);
 
     return closeSnackbar();
@@ -84,7 +83,7 @@ async function showSnackbar(options: SnackbarOptions): Promise<void> {
   };
 
   if (options.action != null) {
-    handleActionButtonClick(options, closeSnackbar);
+    handleActionButtonClick(closeSnackbar);
   }
 
   // Close the last snackbar if it exists
