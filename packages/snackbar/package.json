@@ -62,7 +62,7 @@
     "@alwatr/package-tracer": "^5.0.0",
     "@alwatr/parse-duration": "^5.0.0",
     "@alwatr/wait": "^1.1.16",
-    "@nexim/element": "^1.0.6",
+    "@nexim/element": "^1.1.0",
     "lit": "^3.2.1"
   },
   "devDependencies": {
