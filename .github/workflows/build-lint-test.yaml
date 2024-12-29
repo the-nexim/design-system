@@ -10,14 +10,13 @@ on:
   push:
     branches:
       - next
-      - main
 
 env:
   NODE_VERSION: lts/*
 
 jobs:
-  build-lint-ts:
-    name: Build & Lint Typescript
+  main:
+    name: Build & Lint & Test
     runs-on: ubuntu-latest
 
     permissions:
@@ -49,6 +48,9 @@ jobs:
 
       - name: 🏗 Install dependencies
         run: yarn install --immutable
+
+      - name: 🏗 Cache Wireit
+        uses: google/wireit@setup-github-actions-caching/v2
 
       - name: 🚀 Build Typescript
         run: yarn build
