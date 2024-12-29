@@ -60,16 +60,26 @@ jobs:
       - name: 🏗 Install dependencies
         run: yarn install --immutable
 
+      - name: 🗃️ Cache Wireit
+        uses: google/wireit@setup-github-actions-caching/v2
+
       - name: 🚀 Build Typescript
         run: yarn build
+        env:
+          WIREIT_LOGGER: metrics
 
       - name: 🚀 Run ESLint
         run: yarn lint
+        env:
+          WIREIT_LOGGER: metrics
 
       - name: 🧪 Run Test
         run: yarn test
+        env:
+          WIREIT_LOGGER: metrics
 
       - name: 🤖 Get Release
         run: yarn release -y
         env:
           GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
+          WIREIT_LOGGER: metrics
