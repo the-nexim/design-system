@@ -21,6 +21,7 @@ jobs:
 
     permissions:
       contents: read
+      id-token: write
 
     steps:
       - name: ⤵️ Checkout repository
@@ -54,8 +55,11 @@ jobs:
         run: yarn build
         env:
           NODE_ENV: production
+          WIREIT_LOGGER: metrics
 
       - name: 🚀 Publish
-        run: yarn run publish --yes
+        run: yarn run publish -- --yes
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+          NPM_CONFIG_PROVENANCE: true
+          WIREIT_LOGGER: metrics
