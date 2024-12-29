@@ -41,7 +41,6 @@ jobs:
 
       - name: 🏗 Cache Layer
         uses: actions/cache@v4
-        # id: yarn_cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
         with:
           path: ${{ steps.yarn_config.outputs.cache_folder }}
           key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
@@ -53,9 +52,15 @@ jobs:
 
       - name: 🚀 Build Typescript
         run: yarn build
+        env:
+          WIREIT_LOGGER: metrics
 
       - name: 🚀 Run ESLint
         run: yarn lint
+        env:
+          WIREIT_LOGGER: metrics
 
       - name: 🚀 Run Test
         run: yarn test
+        env:
+          WIREIT_LOGGER: metrics
