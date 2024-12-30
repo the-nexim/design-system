@@ -12,7 +12,7 @@ on:
       - next
 
 env:
-  NODE_VERSION: lts/*
+  NODE_VERSION: 22.11.0
 
 jobs:
   main:
@@ -23,46 +23,25 @@ jobs:
       contents: read
 
     steps:
-      - name: ⤵️ Checkout repository
-        uses: actions/checkout@v4
-
-      - name: 🏗 Setup nodejs
-        uses: actions/setup-node@v4
+      - name: 🛠️ JavaScript Project Setup
+        uses: the-nexim/actions/.github/workflows/javascript-project-setup.yaml@next
         with:
-          node-version: ${{ env.NODE_VERSION }}
+          node_version: ${{ env.NODE_VERSION }}
 
-      - name: 🏗 Setup nodejs corepack
-        run: corepack enable
-
-      - name: 🏗 Get yarn config
-        id: yarn_config
-        run: echo "cache_folder=$(yarn config get cacheFolder)" >> $GITHUB_OUTPUT
-
-      - name: 🏗 Cache Layer
-        uses: actions/cache@v4
-        with:
-          path: ${{ steps.yarn_config.outputs.cache_folder }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
-
-      - name: 🏗 Install dependencies
-        run: yarn install --immutable
-
-      - name: 🏗 Cache Wireit
+      - name: 📦 Cache Wireit
         uses: google/wireit@setup-github-actions-caching/v2
 
-      - name: 🚀 Build Typescript
+      - name: 🏗️ Build Typescript
         run: yarn build
         env:
           WIREIT_LOGGER: metrics
 
-      - name: 🚀 Run ESLint
+      - name: 🧹 Run ESLint
         run: yarn lint
         env:
           WIREIT_LOGGER: metrics
 
-      - name: 🚀 Run Test
+      - name: 🧪 Run Test
         run: yarn test
         env:
           WIREIT_LOGGER: metrics
