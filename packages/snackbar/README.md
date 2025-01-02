@@ -1,12 +1,12 @@
 # @nexim/snackbar
 
-This package provides a customizable snackbar component for displaying brief messages to users. It includes utilities for managing the snackbar's state and animations.
+Snackbar component with signal capability.
 
-![NPM Version](https://img.shields.io/npm/v/%40nexim%2Fsnackbar)
-![npm bundle size](https://img.shields.io/bundlephobia/min/%40nexim%2Fsnackbar)
+![NPM Version](https://img.shields.io/npm/v/@nexim/snackbar)
+![npm bundle size](https://img.shields.io/bundlephobia/min/@nexim/snackbar)
 ![Build & Lint & Test](https://github.com/the-nexim/design-system/actions/workflows/build-lint-test.yaml/badge.svg)
-![NPM Downloads](https://img.shields.io/npm/dm/%40nexim%2Fsnackbar)
-![NPM License](https://img.shields.io/npm/l/%40nexim%2Fsnackbar)
+![NPM Downloads](https://img.shields.io/npm/dm/@nexim/snackbar)
+![NPM License](https://img.shields.io/npm/l/@nexim/snackbar)
 
 ## Overview
 
