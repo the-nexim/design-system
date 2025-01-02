@@ -15,5 +15,5 @@ jobs:
     permissions:
       contents: read
     with:
-      NODE_VERSION: lts/*
+      node-version: lts/*
     secrets: inherit
