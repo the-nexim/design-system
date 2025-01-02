@@ -13,7 +13,7 @@ jobs:
   main:
     uses: the-nexim/actions/.github/workflows/release.yaml@v1
     permissions:
-      contents: read
+      contents: write
     with:
       node-version: lts/*
     secrets: inherit
