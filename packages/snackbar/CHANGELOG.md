@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.0-alpha.2](https://github.com/the-nexim/design-system/compare/@nexim/snackbar@1.0.0-alpha.1...@nexim/snackbar@1.0.0-alpha.2) (2025-01-02)
+
+### Code Refactoring
+
+* migrate scripts to use wireit for improved build process ([#2](https://github.com/the-nexim/design-system/issues/2)) ([22387b5](https://github.com/the-nexim/design-system/commit/22387b5c154c7475eb8ec44c53e13030d518fb3b)) by @arashagp
+
 ## 1.0.0-alpha.1 (2024-12-17)
 
 ### Features
