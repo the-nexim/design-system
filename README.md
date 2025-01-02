@@ -8,7 +8,7 @@ Here is a brief overview of the included libraries:
 
 For more detailed information and guidelines on how to use each package, please refer to each package's README.
 
-### Contributing
+## Contributing
 
 Contributions are welcome! Please read our [contribution guidelines](https://github.com/the-nexim/.github/blob/next/CONTRIBUTING.md) before submitting a pull request.
 
