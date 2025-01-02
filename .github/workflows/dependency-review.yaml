@@ -8,16 +8,5 @@ on:
   pull_request:
 
 jobs:
-  dependency-review:
-    name: Dependency Review
-    runs-on: ubuntu-latest
-
-    permissions:
-      contents: read
-
-    steps:
-      - name: ⤵️ Checkout repository
-        uses: actions/checkout@v4
-
-      - name: 🚀 Dependency Review
-        uses: actions/dependency-review-action@v4
+  main:
+    uses: the-nexim/actions/.github/workflows/codeql.yaml@v1
