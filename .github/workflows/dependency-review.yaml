@@ -9,4 +9,6 @@ on:
 
 jobs:
   main:
-    uses: the-nexim/actions/.github/workflows/codeql.yaml@v1
+    uses: the-nexim/actions/.github/workflows/dependency-review.yaml@v1
+    permissions:
+      contents: read

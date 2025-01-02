@@ -12,6 +12,8 @@ env:
 jobs:
   main:
     uses: the-nexim/actions/.github/workflows/release.yaml@v1
+    permissions:
+      contents: read
     with:
       NODE_VERSION: lts/*
     secrets:

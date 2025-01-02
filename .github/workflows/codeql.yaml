@@ -17,3 +17,7 @@ on:
 jobs:
   main:
     uses: the-nexim/actions/.github/workflows/codeql.yaml@v1
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
