@@ -11,6 +11,8 @@ on:
 jobs:
   main:
     uses: the-nexim/actions/.github/workflows/build-lint-test.yaml@v1
+    permissions:
+      contents: read
     with:
-      node-version: 22.11.0
+      node-version: lts/*
     secrets: inherit
