@@ -10,7 +10,7 @@ on:
       - next
     paths:
       - .github/labels.yaml
-      - .github/sync-labels.yaml
+      - .github/sync-labels.yml
 
 jobs:
   main:
