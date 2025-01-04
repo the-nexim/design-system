@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.0](https://github.com/the-nexim/design-system/compare/@nexim/snackbar@1.0.0-alpha.2...@nexim/snackbar@1.0.0) (2025-01-04)
+
+### Bug Fixes
+
+* **snackbar:** handler for close button ([5084f9c](https://github.com/the-nexim/design-system/commit/5084f9cf5aeacbbf49ebc19e9e74dde60388dc2b)) by @njfamirm
+* **snackbar:** import handler in package ([993e741](https://github.com/the-nexim/design-system/commit/993e7411008c774101aceb341403ed86af5a1572)) by @njfamirm
+
+### Code Refactoring
+
+* **snackbar:** pass function for action handler ([fbb04f2](https://github.com/the-nexim/design-system/commit/fbb04f2ad38af49868157bab887406f5a5694f0e)) by @njfamirm
+
 ## [1.0.0-alpha.2](https://github.com/the-nexim/design-system/compare/@nexim/snackbar@1.0.0-alpha.1...@nexim/snackbar@1.0.0-alpha.2) (2025-01-02)
 
 ### Code Refactoring

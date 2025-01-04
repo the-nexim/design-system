@@ -1,6 +1,6 @@
 {
   "name": "@nexim/snackbar",
-  "version": "1.0.0-alpha.2",
+  "version": "1.0.0",
   "description": "Snackbar component with signal capability.",
   "keywords": [
     "snackbar",
