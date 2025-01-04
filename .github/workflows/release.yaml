@@ -16,6 +16,6 @@ jobs:
       node-version: lts/*
 
     secrets:
-      GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
+      RELEASER_ACCOUNT_TOKEN: ${{ secrets.BOT_TOKEN }}
       GPG_KEY_ID: ${{ secrets.GPG_KEY_ID }}
       GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
