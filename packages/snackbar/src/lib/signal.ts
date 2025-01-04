@@ -6,7 +6,14 @@ import type {SnackbarOptions} from './type.js';
  * Signal triggered when the snackbar action button is clicked to close snackbar.
  */
 export const snackbarActionButtonClickedSignal = /* @__PURE__ */ new AlwatrTrigger({
-  name: 'snackbar-action-button-clicked',
+  name: 'snackbar-action-button-click',
+});
+
+/**
+ * Signal triggered when the snackbar close button is clicked to close snackbar.
+ */
+export const snackbarCloseButtonClickedSignal = /* @__PURE__ */ new AlwatrTrigger({
+  name: 'snackbar-close-button-click',
 });
 
 /**
