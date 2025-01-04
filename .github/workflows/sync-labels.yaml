@@ -4,6 +4,7 @@ name: Sync labels
 
 on:
   workflow_dispatch:
+
   push:
     branches:
       - next
@@ -13,8 +14,8 @@ on:
 
 jobs:
   main:
-    uses: the-nexim/actions/.github/workflows/sync-label.yaml@next
+    uses: the-nexim/actions/.github/workflows/sync-label.yaml@v1
+
     permissions:
       contents: read
       issues: write
-    secrets: inherit
