@@ -3,7 +3,7 @@ import {LightDomMixin, LoggerMixin} from '@nexim/element';
 import {html, LitElement, nothing, type PropertyValues, type TemplateResult} from 'lit';
 import {customElement, property} from 'lit/decorators.js';
 
-import {snackbarActionButtonClickedSignal} from './signal.js';
+import {snackbarActionButtonClickedSignal, snackbarCloseButtonClickedSignal} from './signal.js';
 import {waitForNextFrame} from './utils.js';
 
 declare global {
@@ -46,6 +46,9 @@ export class SnackbarElement extends LightDomMixin(LoggerMixin(LitElement)) {
   /**
    * Close the snackbar and remove it from the DOM.
    * Waits for the closing animation to end before removing the element.
+   *
+   * @internal
+   * This method should be used by the package API, not directly, to ensure proper signal unsubscription.
    */
   async close(): Promise<void> {
     this.logger_.logMethod?.('close');
@@ -54,6 +57,16 @@ export class SnackbarElement extends LightDomMixin(LoggerMixin(LitElement)) {
 
     await waitForTimeout(SnackbarElement.openAndCloseAnimationDuration__);
     this.remove();
+  }
+
+  /**
+   * Handle the close button click event.
+   * Sends a signal when the action button is clicked.
+   */
+  private closeButtonClickHandler__(): void {
+    this.logger_.logMethod?.('closeButtonClickHandler__');
+
+    snackbarCloseButtonClickedSignal.notify();
   }
 
   /**
@@ -101,7 +114,7 @@ export class SnackbarElement extends LightDomMixin(LoggerMixin(LitElement)) {
     this.logger_.logMethod?.('renderCloseButton__');
 
     return html`
-      <button class="close-button" @click=${this.close.bind(this)}>
+      <button class="close-button" @click=${this.closeButtonClickHandler__.bind(this)}>
         <span class="alwatr-icon-font">close</span>
       </button>
     `;

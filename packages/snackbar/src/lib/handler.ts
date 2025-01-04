@@ -2,10 +2,10 @@ import {createLogger} from '@alwatr/logger';
 import {parseDuration} from '@alwatr/parse-duration';
 import {waitForTimeout} from '@alwatr/wait';
 
-import {snackbarActionButtonClickedSignal, snackbarSignal} from './signal.js';
+import {snackbarActionButtonClickedSignal, snackbarCloseButtonClickedSignal, snackbarSignal} from './signal.js';
 
 import type {SnackbarElement} from './element.js';
-import type {SnackbarOptions} from './type.js';
+import type {SnackbarActionHandler, SnackbarOptions} from './type.js';
 
 const logger = createLogger(`${__package_name__}/handler`);
 
@@ -18,6 +18,11 @@ let closeLastSnackbar: (() => Promise<void>) | null = null;
  * Store the function to unsubscribe the action button handler after close or action button clicked.
  */
 let unsubscribeActionButtonHandler: (() => void) | null = null;
+
+/**
+ * Store the function to unsubscribe the close button handler after close or action button clicked.
+ */
+let unsubscribeCloseButtonHandler: (() => void) | null = null;
 
 /**
  * Create snackbar element with given options.
@@ -43,20 +48,25 @@ function createSnackbarElement(options: SnackbarOptions): SnackbarElement {
 /**
  * Handle action button click.
  *
- * @param options - Options for configuring the snackbar.
  * @param closeSnackbar - Function to close the snackbar.
+ * @param handler - Handler to be called when the action button is clicked.
  */
-function handleActionButtonClick(closeSnackbar: () => Promise<void>): void {
+function handleActionButtonClick(closeSnackbar: () => Promise<void>, handler?: SnackbarActionHandler): void {
+  logger.logMethod?.('handleActionButtonClick');
+
   const actionButtonClickHandler = () => {
     logger.logOther?.('Snackbar action button clicked.');
 
+    handler?.();
     return closeSnackbar();
   };
 
-  // Subscribe to the action button click
-  unsubscribeActionButtonHandler = snackbarActionButtonClickedSignal.subscribe(actionButtonClickHandler.bind(null), {
-    once: true,
-  }).unsubscribe;
+  /**
+   * Store the function to unsubscribe the action button handler after close or action button clicked.
+   *
+   * TODO: check why once not work
+   */
+  unsubscribeActionButtonHandler = snackbarActionButtonClickedSignal.subscribe(actionButtonClickHandler.bind(null)).unsubscribe;
 }
 
 /**
@@ -79,11 +89,18 @@ async function showSnackbar(options: SnackbarOptions): Promise<void> {
 
     await element.close();
     unsubscribeActionButtonHandler?.();
+    unsubscribeCloseButtonHandler?.();
+
     closed = true;
   };
 
   if (options.action != null) {
-    handleActionButtonClick(closeSnackbar);
+    handleActionButtonClick(closeSnackbar, options.action.handler);
+  }
+
+  if (options.addCloseButton === true) {
+    // TODO: check why once not work
+    unsubscribeCloseButtonHandler = snackbarCloseButtonClickedSignal.subscribe(closeSnackbar.bind(null)).unsubscribe;
   }
 
   // Close the last snackbar if it exists

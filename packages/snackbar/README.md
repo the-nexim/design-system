@@ -34,10 +34,11 @@ import {snackbarSignal} from '@nexim/snackbar';
 
 snackbarSignal.notify({
   content: 'This is a snackbar message',
-  // The following properties are optional.
   action: {
     label: 'Undo',
-    signalId: 'undo-handler',
+    handler: () => {
+      console.log('Action button clicked');
+    },
   },
   duration: '5s',
   addCloseButton: true,
