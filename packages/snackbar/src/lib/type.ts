@@ -19,7 +19,7 @@ export type SnackbarOptions = {
    */
   action?: {
     /**
-     * The signal ID to be emitted when the action button is clicked.
+     * The handler to be called when the action button is clicked.
      */
     handler: SnackbarActionHandler;
 

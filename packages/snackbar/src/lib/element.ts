@@ -48,6 +48,7 @@ export class SnackbarElement extends LightDomMixin(LoggerMixin(LitElement)) {
    * Waits for the closing animation to end before removing the element.
    *
    * @internal
+   * This method should be used by the package API, not directly, to ensure proper signal unsubscription.
    */
   async close(): Promise<void> {
     this.logger_.logMethod?.('close');

@@ -54,19 +54,19 @@ function createSnackbarElement(options: SnackbarOptions): SnackbarElement {
 function handleActionButtonClick(closeSnackbar: () => Promise<void>, handler?: SnackbarActionHandler): void {
   logger.logMethod?.('handleActionButtonClick');
 
-  const actionButtonClickHandler = async () => {
+  const actionButtonClickHandler = () => {
     logger.logOther?.('Snackbar action button clicked.');
 
-    await handler?.();
+    handler?.();
     return closeSnackbar();
   };
 
   /**
    * Store the function to unsubscribe the action button handler after close or action button clicked.
+   *
+   * TODO: check why once not work
    */
-  unsubscribeActionButtonHandler = snackbarActionButtonClickedSignal.subscribe(actionButtonClickHandler.bind(null), {
-    // once: true, // not work!
-  }).unsubscribe;
+  unsubscribeActionButtonHandler = snackbarActionButtonClickedSignal.subscribe(actionButtonClickHandler.bind(null)).unsubscribe;
 }
 
 /**
@@ -99,6 +99,7 @@ async function showSnackbar(options: SnackbarOptions): Promise<void> {
   }
 
   if (options.addCloseButton === true) {
+    // TODO: check why once not work
     unsubscribeCloseButtonHandler = snackbarCloseButtonClickedSignal.subscribe(closeSnackbar.bind(null)).unsubscribe;
   }
 
