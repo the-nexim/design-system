@@ -5,7 +5,7 @@ import {waitForTimeout} from '@alwatr/wait';
 import {snackbarActionButtonClickedSignal, snackbarSignal} from './signal.js';
 
 import type {SnackbarElement} from './element.js';
-import type {SnackbarOptions} from './type.js';
+import type {SnackbarActionHandler, SnackbarOptions} from './type.js';
 
 const logger = createLogger(`${__package_name__}/handler`);
 
@@ -43,13 +43,14 @@ function createSnackbarElement(options: SnackbarOptions): SnackbarElement {
 /**
  * Handle action button click.
  *
- * @param options - Options for configuring the snackbar.
  * @param closeSnackbar - Function to close the snackbar.
+ * @param handler - Handler to be called when the action button is clicked.
  */
-function handleActionButtonClick(closeSnackbar: () => Promise<void>): void {
-  const actionButtonClickHandler = () => {
+function handleActionButtonClick(closeSnackbar: () => Promise<void>, handler?: SnackbarActionHandler): void {
+  const actionButtonClickHandler = async () => {
     logger.logOther?.('Snackbar action button clicked.');
 
+    await handler?.();
     return closeSnackbar();
   };
 
@@ -83,7 +84,7 @@ async function showSnackbar(options: SnackbarOptions): Promise<void> {
   };
 
   if (options.action != null) {
-    handleActionButtonClick(closeSnackbar);
+    handleActionButtonClick(closeSnackbar, options.action.handler);
   }
 
   // Close the last snackbar if it exists
