@@ -1,6 +1,5 @@
+import {delay} from '@alwatr/delay';
 import {createLogger} from '@alwatr/logger';
-import {parseDuration} from '@alwatr/parse-duration';
-import {waitForTimeout} from '@alwatr/wait';
 
 import {snackbarActionButtonClickedSignal, snackbarCloseButtonClickedSignal, snackbarSignal} from './signal.js';
 
@@ -107,7 +106,7 @@ async function showSnackbar(options: SnackbarOptions): Promise<void> {
 
   // Set a timeout to close the snackbar if duration is not infinite
   if (options.duration !== 'infinite') {
-    waitForTimeout(parseDuration(options.duration)).then(closeSnackbar);
+    delay.by(options.duration).then(closeSnackbar);
   }
 }
 

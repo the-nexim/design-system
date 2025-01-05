@@ -141,15 +141,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@alwatr/global-scope@npm:^1.1.21":
-  version: 1.1.26
-  resolution: "@alwatr/global-scope@npm:1.1.26"
-  dependencies:
-    "@alwatr/package-tracer": "npm:^1.0.4"
-  checksum: 10c0/d094cf6e1f0da79866cdde1abd45b073a4206c972ba274e57dd5fdc8a62db7fd4f5973360cfc2da03a8761cbd86bc9798f41fcf4a2ea5cf6b6b15f52a9f623a0
-  languageName: node
-  linkType: hard
-
 "@alwatr/global-this@npm:^5.0.0":
   version: 5.0.0
   resolution: "@alwatr/global-this@npm:5.0.0"
@@ -257,13 +248,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@alwatr/package-tracer@npm:^1.0.4":
-  version: 1.0.8
-  resolution: "@alwatr/package-tracer@npm:1.0.8"
-  checksum: 10c0/c9fe659a98c3225e8d3a188bd14e1dfd5ba2cc782a3faff689b54bd274419c0a4729a2785dd1304c549874f601e236bc0c570c3d2b12ca6c1d6ca5825f196747
-  languageName: node
-  linkType: hard
-
 "@alwatr/package-tracer@npm:^5.0.0":
   version: 5.0.0
   resolution: "@alwatr/package-tracer@npm:5.0.0"
@@ -351,15 +335,6 @@ __metadata:
   dependencies:
     "@alwatr/package-tracer": "npm:^5.0.0"
   checksum: 10c0/07fef091c44a631c0876b6c79151ab8e75dfa94d9ad19073a1826ed170a6f0a9419f24660a619d86538de385ab3564581e7058ba812236fa55bd123c7541239f
-  languageName: node
-  linkType: hard
-
-"@alwatr/wait@npm:^1.1.16":
-  version: 1.1.16
-  resolution: "@alwatr/wait@npm:1.1.16"
-  dependencies:
-    "@alwatr/global-scope": "npm:^1.1.21"
-  checksum: 10c0/3ac3af8b6c913a1f0414bc8893ac3ba0175a6e4e2732395a8f2ee263d3a2f65bb22bcfef78d57b611d00be0d75b9cf535ebf854c99db25b51cfd47e9d41e9b23
   languageName: node
   linkType: hard
 
@@ -1066,13 +1041,13 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@nexim/snackbar@workspace:packages/snackbar"
   dependencies:
+    "@alwatr/delay": "npm:^5.0.0"
     "@alwatr/flux": "npm:^4.0.2"
     "@alwatr/logger": "npm:^5.0.0"
     "@alwatr/nano-build": "npm:^5.0.0"
     "@alwatr/package-tracer": "npm:^5.0.0"
     "@alwatr/parse-duration": "npm:^5.0.0"
     "@alwatr/type-helper": "npm:^5.0.0"
-    "@alwatr/wait": "npm:^1.1.16"
     "@nexim/element": "npm:^1.1.1"
     "@nexim/typescript-config": "npm:^1.1.0"
     ava: "npm:^6.2.0"

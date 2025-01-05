@@ -1,4 +1,4 @@
-import {waitForAnimationFrame, waitForTimeout} from '@alwatr/wait';
+import {delay} from '@alwatr/delay';
 
 /**
  * Waits for the next frame to ensure the DOM has been fully calculated.
@@ -11,8 +11,8 @@ import {waitForAnimationFrame, waitForTimeout} from '@alwatr/wait';
  */
 export function waitForNextFrame(): Promise<void> {
   return new Promise((resolve) => {
-    waitForAnimationFrame().then(() => {
-      waitForTimeout(0).then(resolve);
+    delay.untilNextAnimationFrame().then(() => {
+      delay.immediate().then(resolve);
     });
   });
 }
