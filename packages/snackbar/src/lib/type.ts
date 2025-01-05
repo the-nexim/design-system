@@ -31,6 +31,8 @@ export type SnackbarOptions = {
 
   /**
    * Duration for which the snackbar is displayed. `infinite` for infinite duration.
+   *
+   * @default `5s`
    */
   duration?: Duration | 'infinite';
 
