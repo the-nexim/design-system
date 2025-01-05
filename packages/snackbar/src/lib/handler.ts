@@ -7,7 +7,7 @@ import {snackbarActionButtonClickedSignal, snackbarCloseButtonClickedSignal, sna
 import type {SnackbarElement} from './element.js';
 import type {SnackbarActionHandler, SnackbarOptions} from './type.js';
 
-const logger = createLogger(`${__package_name__}/handler`);
+const logger = createLogger(`${__package_name__}`);
 
 /**
  * Store the function to close the last snackbar.
@@ -54,8 +54,8 @@ function createSnackbarElement(options: SnackbarOptions): SnackbarElement {
 function handleActionButtonClick(closeSnackbar: () => Promise<void>, handler?: SnackbarActionHandler): Promise<void> {
   logger.logMethod?.('handleActionButtonClick');
 
-    handler?.();
-    return closeSnackbar();
+  handler?.();
+  return closeSnackbar();
 }
 
 /**
@@ -83,6 +83,9 @@ async function showSnackbar(options: SnackbarOptions): Promise<void> {
     closed = true;
   };
 
+  await closeLastSnackbar?.();
+  closeLastSnackbar = closeSnackbar;
+
   if (options.action != null) {
     /**
      * Store the function to unsubscribe the action button handler after close or action button clicked.
@@ -100,8 +103,6 @@ async function showSnackbar(options: SnackbarOptions): Promise<void> {
   }
 
   // Close the last snackbar if it exists
-  await closeLastSnackbar?.();
-  closeLastSnackbar = closeSnackbar;
   document.body.appendChild(element);
 
   // Set a timeout to close the snackbar if duration is not infinite
