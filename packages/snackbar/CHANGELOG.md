@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.2](https://github.com/the-nexim/design-system/compare/@nexim/snackbar@1.0.1...@nexim/snackbar@1.0.2) (2025-01-05)
+
+### Bug Fixes
+
+* **snackbar/handler:** close last snackbar before add new subscriber ([c8a041d](https://github.com/the-nexim/design-system/commit/c8a041d373dfad3b672e977cbc1f31f6c233f553)) by @njfamirm
+* **snackbar:** catch action button handler error ([6953907](https://github.com/the-nexim/design-system/commit/6953907bfb8231d787d3e44f26e4b262364ec946)) by @njfamirm
+
+### Code Refactoring
+
+* **snackbar:** set correct action button handler ([acd3ac2](https://github.com/the-nexim/design-system/commit/acd3ac28a0055b46ea7262f74bd7863ba290ae2e)) by @njfamirm
+* **snackbar:** use @alwatr/delay instead of @alwatr/wait ([7cc27d5](https://github.com/the-nexim/design-system/commit/7cc27d5f1a028b217b284a8bea185b09cb00f07e)) by @njfamirm
+
 ## [1.0.1](https://github.com/the-nexim/design-system/compare/@nexim/snackbar@1.0.0...@nexim/snackbar@1.0.1) (2025-01-05)
 
 ### Bug Fixes
