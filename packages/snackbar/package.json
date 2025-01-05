@@ -46,16 +46,16 @@
     "watch": "wireit"
   },
   "dependencies": {
+    "@alwatr/delay": "^5.0.0",
     "@alwatr/flux": "^4.0.2",
     "@alwatr/logger": "^5.0.0",
     "@alwatr/package-tracer": "^5.0.0",
-    "@alwatr/parse-duration": "^5.0.0",
-    "@alwatr/wait": "^1.1.16",
     "@nexim/element": "^1.1.1",
     "lit": "^3.2.1"
   },
   "devDependencies": {
     "@alwatr/nano-build": "^5.0.0",
+    "@alwatr/parse-duration": "^5.0.0",
     "@alwatr/type-helper": "^5.0.0",
     "@nexim/typescript-config": "^1.1.0",
     "ava": "^6.2.0",

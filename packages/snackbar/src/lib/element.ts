@@ -1,4 +1,4 @@
-import {waitForTimeout} from '@alwatr/wait';
+import {delay} from '@alwatr/delay';
 import {LightDomMixin, LoggerMixin} from '@nexim/element';
 import {html, LitElement, nothing, type PropertyValues, type TemplateResult} from 'lit';
 import {customElement, property} from 'lit/decorators.js';
@@ -55,7 +55,7 @@ export class SnackbarElement extends LightDomMixin(LoggerMixin(LitElement)) {
 
     this.removeAttribute('open');
 
-    await waitForTimeout(SnackbarElement.openAndCloseAnimationDuration__);
+    await delay.by(SnackbarElement.openAndCloseAnimationDuration__);
     this.remove();
   }
 
