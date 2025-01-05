@@ -11,7 +11,7 @@ const logger = createLogger(`${__package_name__}`);
 /**
  * Store the function to close the last snackbar.
  */
-let closeLastSnackbar: (() => Promise<void>) | null = null;
+let closeLastSnackbar: (() => MaybePromise<void>) | null = null;
 
 /**
  * Store the function to unsubscribe the action button handler after close or action button clicked.
@@ -53,7 +53,16 @@ function createSnackbarElement(options: SnackbarOptions): SnackbarElement {
 function handleActionButtonClick(closeSnackbar: () => Promise<void>, handler?: SnackbarActionHandler): Promise<void> {
   logger.logMethod?.('handleActionButtonClick');
 
-  handler?.();
+  // non-blocking to handler done
+  (async () => {
+    try {
+      await handler!();
+    }
+    catch (error) {
+      logger.error('handleActionButtonClick', 'call_handler_failed', error);
+    }
+  })();
+
   return closeSnackbar();
 }
 
