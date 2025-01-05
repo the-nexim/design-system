@@ -115,7 +115,7 @@ export class SnackbarElement extends LightDomMixin(LoggerMixin(LitElement)) {
 
     return html`
       <button class="close-button" @click=${this.closeButtonClickHandler__.bind(this)}>
-        <span class="alwatr-icon-font">close</span>
+        <span class="icon">close</span>
       </button>
     `;
   }
