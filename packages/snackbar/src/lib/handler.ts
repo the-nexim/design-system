@@ -1,61 +1,36 @@
-import {AlwatrSignal, AlwatrTrigger} from '@alwatr/flux';
+import {delay} from '@alwatr/delay';
 import {createLogger} from '@alwatr/logger';
-import {waitForTimeout} from '@alwatr/wait';
 
-import type {SnackbarComponent} from './element.js';
+import {snackbarActionButtonClickedSignal, snackbarCloseButtonClickedSignal, snackbarSignal} from './signal.js';
 
-const logger = createLogger(`${__package_name__}/snackbar`);
+import type {SnackbarElement} from './element.js';
+import type {SnackbarActionHandler, SnackbarOptions} from './type.js';
 
-/**
- * Options for configuring the snackbar.
- */
-export type SnackbarOptions = {
-  content: string;
-  action?: {
-    label: string;
-    handler: () => void;
-  };
-
-  /**
-   * Duration for which the snackbar is displayed.
-   * `-1` for infinite duration.
-   */
-  duration?: number;
-  addCloseButton?: boolean;
-};
+const logger = createLogger(`${__package_name__}`);
 
 /**
- * Signal for when the snackbar action button is clicked.
+ * Store the function to close the last snackbar.
  */
-export const snackbarActionButtonClickedSignal = new AlwatrTrigger({
-  name: 'snackbar-action-button-clicked',
-});
+let closeLastSnackbar: (() => MaybePromise<void>) | null = null;
 
 /**
- * Signal for displaying the snackbar.
+ * Store the function to unsubscribe the action button handler after close or action button clicked.
  */
-export const snackbarSignal = new AlwatrSignal<SnackbarOptions>({name: 'snackbar'});
-
-// Subscribe to the snackbar signal to show the snackbar when the signal is emitted.
-snackbarSignal.subscribe((options) => {
-  showSnackbar(options);
-});
-
-let closeLastSnackbar: (() => Promise<void>) | null = null;
 let unsubscribeActionButtonHandler: (() => void) | null = null;
 
 /**
- * Displays the snackbar with the given options.
- * @param options - Options for configuring the snackbar.
+ * Store the function to unsubscribe the close button handler after close or action button clicked.
  */
-async function showSnackbar(options: SnackbarOptions): Promise<void> {
-  logger.logMethodArgs?.('showSnackbar', {options});
+let unsubscribeCloseButtonHandler: (() => void) | null = null;
 
-  // Set default duration if not provided
-  options.duration ??= 4_000;
-
-  const element = document.createElement('snack-bar') as SnackbarComponent;
-
+/**
+ * Create snackbar element with given options.
+ *
+ * @param options - Options for configuring the snackbar.
+ * @returns The created snackbar element.
+ */
+function createSnackbarElement(options: SnackbarOptions): SnackbarElement {
+  const element = document.createElement('snack-bar');
   element.setAttribute('content', options.content);
 
   if (options.addCloseButton === true) {
@@ -64,17 +39,48 @@ async function showSnackbar(options: SnackbarOptions): Promise<void> {
 
   if (options.action != null) {
     element.setAttribute('action-button-label', options.action.label);
-
-    // Subscribe to the action button click
-    unsubscribeActionButtonHandler = snackbarActionButtonClickedSignal.subscribe(() => {
-      options.action!.handler();
-
-      return closeSnackbar_();
-    }).unsubscribe;
   }
 
+  return element;
+}
+
+/**
+ * Handle action button click.
+ *
+ * @param closeSnackbar - Function to close the snackbar.
+ * @param handler - Handler to be called when the action button is clicked.
+ */
+function handleActionButtonClick(closeSnackbar: () => Promise<void>, handler?: SnackbarActionHandler): Promise<void> {
+  logger.logMethod?.('handleActionButtonClick');
+
+  // non-blocking to handler done
+  (async () => {
+    try {
+      await handler!();
+    }
+    catch (error) {
+      logger.error('handleActionButtonClick', 'call_handler_failed', error);
+    }
+  })();
+
+  return closeSnackbar();
+}
+
+/**
+ * Displays the snackbar with the given options.
+ *
+ * @param options - Options for configuring the snackbar.
+ */
+async function showSnackbar(options: SnackbarOptions): Promise<void> {
+  logger.logMethodArgs?.('showSnackbar', {options});
+
+  // Set default duration if not provided
+  options.duration ??= '5s';
+
+  const element = createSnackbarElement(options);
+
   let closed = false;
-  const closeSnackbar_ = async () => {
+  const closeSnackbar = async () => {
     if (closed === true) return;
     logger.logMethodArgs?.('closeSnackbar', {options});
 
@@ -85,13 +91,35 @@ async function showSnackbar(options: SnackbarOptions): Promise<void> {
     closed = true;
   };
 
-  // Close the last snackbar if it exists
   await closeLastSnackbar?.();
-  closeLastSnackbar = closeSnackbar_;
+  closeLastSnackbar = closeSnackbar;
+
+  if (options.action != null) {
+    /**
+     * Store the function to unsubscribe the action button handler after close or action button clicked.
+     *
+     * TODO: check why once not work
+     */
+    unsubscribeActionButtonHandler = snackbarActionButtonClickedSignal.subscribe(
+      handleActionButtonClick.bind(null, closeSnackbar, options.action.handler),
+    ).unsubscribe;
+  }
+
+  if (options.addCloseButton === true) {
+    // TODO: check why once not work
+    unsubscribeCloseButtonHandler = snackbarCloseButtonClickedSignal.subscribe(closeSnackbar.bind(null)).unsubscribe;
+  }
+
+  // Close the last snackbar if it exists
   document.body.appendChild(element);
 
   // Set a timeout to close the snackbar if duration is not infinite
-  if (options.duration !== -1) {
-    waitForTimeout(options.duration).then(closeSnackbar_);
+  if (options.duration !== 'infinite') {
+    delay.by(options.duration).then(closeSnackbar);
   }
 }
+
+// Subscribe to the snackbar signal to show the snackbar when the signal is emitted.
+snackbarSignal.subscribe((options) => {
+  showSnackbar(options);
+});
