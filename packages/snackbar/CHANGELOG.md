@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.3](https://github.com/the-nexim/design-system/compare/@nexim/snackbar@1.0.2...@nexim/snackbar@1.0.3) (2025-01-08)
+
+### Bug Fixes
+
+* **snackbar:** add styles for SnackbarElement component ([#10](https://github.com/the-nexim/design-system/issues/10)) ([b4b077f](https://github.com/the-nexim/design-system/commit/b4b077fe4b8d3236003c45610b87071e17d1c471)) by @arashagp
+
+### Code Refactoring
+
+* **typescripts:** update typescript configurations ([#8](https://github.com/the-nexim/design-system/issues/8)) ([650349a](https://github.com/the-nexim/design-system/commit/650349a01cc30293f7b1814efae51ed491da29da)) by @arashagp
+* update output paths in package.json ([#9](https://github.com/the-nexim/design-system/issues/9)) ([688a631](https://github.com/the-nexim/design-system/commit/688a631c82a78f1e066e6a92a33c1d472aa031ea)) by @arashagp
+
 ## [1.0.2](https://github.com/the-nexim/design-system/compare/@nexim/snackbar@1.0.1...@nexim/snackbar@1.0.2) (2025-01-05)
 
 ### Bug Fixes
