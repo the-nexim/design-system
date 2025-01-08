@@ -29,16 +29,19 @@
       "types": "./dist/main.d.ts",
       "import": "./dist/main.mjs",
       "require": "./dist/main.cjs"
-    }
+    },
+    "./style": "./style/main.css"
   },
   "main": "./dist/main.cjs",
   "module": "./dist/main.mjs",
   "types": "./dist/main.d.ts",
+  "style": "./style/main.css",
   "files": [
     "**/*.{js,mjs,cjs,map,d.ts,html,md,LEGAL.txt}",
     "LICENSE",
     "!**/*.test.js",
-    "!demo/**/*"
+    "!demo/**/*",
+    "style/main.css"
   ],
   "scripts": {
     "build": "wireit",
