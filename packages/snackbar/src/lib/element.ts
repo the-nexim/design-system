@@ -1,6 +1,6 @@
 import {delay} from '@alwatr/delay';
 import {LightDomMixin, LoggerMixin} from '@nexim/element';
-import {html, LitElement, nothing, type PropertyValues, type TemplateResult} from 'lit';
+import {html, css, LitElement, nothing, type PropertyValues, type TemplateResult} from 'lit';
 import {customElement, property} from 'lit/decorators.js';
 
 import {snackbarActionButtonClickedSignal, snackbarCloseButtonClickedSignal} from './signal.js';
@@ -42,6 +42,72 @@ export class SnackbarElement extends LightDomMixin(LoggerMixin(LitElement)) {
       this.setAttribute('open', '');
     });
   }
+
+  static override styles = css`
+    .snack-bar {
+      background-color: var(--inverseSurface);
+      color: var(--surface);
+      box-shadow: var(--elevation-3);
+      z-index: var(--z-snackbar);
+      font-size: var(--labelLarge);
+      padding-bottom: var(--bottom-safe-32);
+      padding-bottom: var(--extended-bottom-safe-12);
+      position: fixed;
+      right: 1rem;
+      left: 1rem;
+      display: flex;
+      min-height: 3rem;
+      flex-shrink: 0;
+      transform: translateY(2rem);
+      transform: translateZ(0);
+      user-select: none;
+      flex-wrap: wrap;
+      align-items: flex-end;
+      justify-content: flex-end;
+      gap: 1rem;
+      border-radius: 0.375rem;
+      padding: 0.5rem 1rem;
+      opacity: 0;
+      transition: all 0.2s ease-out;
+      @media (min-width: 768px) {
+        left: auto;
+        max-width: 24rem;
+      }
+
+      &[open] {
+        pointer-events: auto;
+        opacity: 1;
+        transition: opacity 0.2s ease-in;
+      }
+
+      > span {
+        flex-grow: 1;
+        padding: 0.5rem 0;
+      }
+
+      > div {
+        font-size: var(--bodyMedium);
+        display: flex;
+        justify-content: flex-end;
+        gap: 0.5rem;
+        border-radius: 9999px;
+
+        & > * {
+          cursor: pointer;
+          border-radius: 9999px;
+          padding: 0.5rem;
+        }
+      }
+
+      .action-button {
+        background-color: var(--inversePrimary);
+      }
+
+      .close-button {
+        background-color: var(--surface);
+      }
+    }
+  `;
 
   /**
    * Close the snackbar and remove it from the DOM.
