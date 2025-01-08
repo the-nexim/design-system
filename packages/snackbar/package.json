@@ -35,13 +35,9 @@
   "main": "./dist/main.cjs",
   "module": "./dist/main.mjs",
   "types": "./dist/main.d.ts",
-  "style": "./style/main.css",
   "files": [
-    "**/*.{js,mjs,cjs,map,d.ts,html,md,LEGAL.txt}",
-    "LICENSE",
-    "!**/*.test.js",
-    "!demo/**/*",
-    "style/main.css"
+    "**/*.{js,mjs,cjs,map,d.ts,html,md,LEGAL.txt,css}",
+    "LICENSE"
   ],
   "scripts": {
     "build": "wireit",
