@@ -1,0 +1,29 @@
+@layer components {
+  snack-bar {
+    @apply bg-inverseSurface text-surface elevation-3 z-snackbar text-labelLarge bottom-safe-32 extended:bottom-safe-12 fixed end-4 start-4 flex min-h-12 flex-shrink translate-y-8 transform-gpu select-none flex-wrap items-end justify-end gap-4 rounded-md px-4 py-2 opacity-0 transition-all duration-200 ease-out md:start-auto md:max-w-sm;
+
+    &[open] {
+      @apply pointer-events-auto opacity-100 ease-in;
+    }
+
+    > span {
+      @apply grow py-2;
+    }
+
+    > div {
+      @apply text-bodyMedium flex justify-end gap-2 rounded-full;
+
+      & > * {
+        @apply cursor-pointer rounded-full p-2;
+      }
+    }
+
+    .action-button {
+      @apply state-inversePrimary;
+    }
+
+    .close-button {
+      @apply state-surface;
+    }
+  }
+}
