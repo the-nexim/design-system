@@ -1057,6 +1057,26 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@nexim/text-field-component@workspace:packages/text-field-component":
+  version: 0.0.0-use.local
+  resolution: "@nexim/text-field-component@workspace:packages/text-field-component"
+  dependencies:
+    "@alwatr/delay": "npm:^5.0.0"
+    "@alwatr/flux": "npm:^4.0.2"
+    "@alwatr/logger": "npm:^5.0.0"
+    "@alwatr/nano-build": "npm:^5.0.0"
+    "@alwatr/package-tracer": "npm:^5.0.0"
+    "@alwatr/parse-duration": "npm:^5.0.0"
+    "@alwatr/type-helper": "npm:^5.0.0"
+    "@nexim/element": "npm:^1.1.1"
+    "@nexim/typescript-config": "npm:^2.0.0"
+    ava: "npm:^6.2.0"
+    lit: "npm:^3.2.1"
+    typescript: "npm:^5.7.2"
+    wireit: "npm:^0.14.9"
+  languageName: unknown
+  linkType: soft
+
 "@nexim/typescript-config@npm:^2.0.0":
   version: 2.0.0
   resolution: "@nexim/typescript-config@npm:2.0.0"
