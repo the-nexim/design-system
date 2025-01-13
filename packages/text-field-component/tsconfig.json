@@ -1,0 +1,10 @@
+{
+  "extends": "@nexim/typescript-config/tsconfig.browser.lib.json",
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "dist",
+    "types": ["@alwatr/nano-build", "@alwatr/type-helper"]
+  },
+  "include": ["src/**/*.ts"],
+  "references": []
+}
