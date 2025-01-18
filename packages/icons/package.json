@@ -1,0 +1,40 @@
+{
+  "name": "@nexim/icons",
+  "version": "0.0.0",
+  "description": "CSS classes for Material Design 3 icons.",
+  "keywords": [
+    "material",
+    "icons",
+    "material-design",
+    "design-system",
+    "nexim"
+  ],
+  "homepage": "https://github.com/the-nexim/design-system/tree/next/packages/icons#readme",
+  "bugs": {
+    "url": "https://github.com/the-nexim/design-system/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/the-nexim/design-system",
+    "directory": "packages/icons"
+  },
+  "license": "AGPL-3.0-only",
+  "author": "S. Amir Mohammad Najafi <njfamirm@gmail.com> (www.njfamirm.ir)",
+  "contributors": [
+    "Arash Ghardashpoor <arash.qardashpoor@gmail.com> (https://www.agpagp.ir)"
+  ],
+  "type": "module",
+  "exports": {
+    ".": {
+      "require": "./style/main.css",
+      "import": "./style/main.css"
+    }
+  },
+  "files": [
+    "**/*.{js,mjs,cjs,map,d.ts,html,md,LEGAL.txt,css}",
+    "LICENSE"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}

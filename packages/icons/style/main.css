@@ -1,0 +1,27 @@
+@layer components {
+  @font-face {
+    font-family: 'material-icon-outlined';
+    font-style: normal;
+    font-weight: 400;
+    font-display: block;
+    src: url('/font/material-icon-font/material-icon-font-outlined.woff') format('woff');
+  }
+
+  /* the outlined is default */
+  .icon {
+    font-family: 'material-icon-outlined';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    white-space: nowrap;
+    word-wrap: normal;
+    font-feature-settings: 'liga';
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+
+    @apply box-content inline-block size-[1em] shrink-0 grow-0 self-center align-middle [contain:strict];
+  }
+}
