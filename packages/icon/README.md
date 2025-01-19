@@ -1,7 +1,5 @@
 # @nexim/icon
 
-CSS Utility Class for Material Icons.
-
 ![NPM Version](https://img.shields.io/npm/v/@nexim/icon)
 ![npm bundle size](https://img.shields.io/bundlephobia/min/@nexim/icon)
 ![Build & Lint & Test](https://github.com/the-nexim/design-system/actions/workflows/build-lint-test.yaml/badge.svg)
@@ -25,7 +23,7 @@ yarn add @nexim/icon
 
 ## API
 
-- in the first step you must download woff file, you can download this [file](./font/material-icon-font-outlined.woff)
+- in the first step you must download woff file from google, you can check this [repo](https://github.com/marella/material-icons/blob/main/iconfont/material-icons-outlined.woff)
 - move the woff file into your project
 - copy and past this `@font-face` into your main css file
 
@@ -35,7 +33,7 @@ yarn add @nexim/icon
   font-style: normal;
   font-weight: 400;
   font-display: block;
-  src: url('write font path') format('woff');
+  src: url('font path') format('woff');
 }
 ```
 
