@@ -23,9 +23,6 @@
   "contributors": [
     "Arash Ghardashpoor <arash.qardashpoor@gmail.com> (https://www.agpagp.ir)"
   ],
-  "exports": {
-    "./style": "./style/main.css"
-  },
   "files": [
     "**/*.{js,mjs,cjs,map,d.ts,html,md,LEGAL.txt,css}",
     "LICENSE"

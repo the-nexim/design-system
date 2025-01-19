@@ -1026,9 +1026,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nexim/icon@workspace:packages/icons":
+"@nexim/icon@workspace:packages/icon":
   version: 0.0.0-use.local
-  resolution: "@nexim/icon@workspace:packages/icons"
+  resolution: "@nexim/icon@workspace:packages/icon"
   languageName: unknown
   linkType: soft
 

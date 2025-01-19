@@ -12,14 +12,14 @@
     font-feature-settings: 'liga';
     -webkit-font-feature-settings: 'liga';
     -webkit-font-smoothing: antialiased;
-      box-sizing: content-box;
-      display: inline-block;
-      width: 1em;
-      height: 1em;
-      flex-shrink: 0;
-      flex-grow: 0;
-      align-self: center;
-      vertical-align: middle;
-      contain: strict;
+    box-sizing: content-box;
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    flex-shrink: 0;
+    flex-grow: 0;
+    align-self: center;
+    vertical-align: middle;
+    contain: strict;
   }
 }
