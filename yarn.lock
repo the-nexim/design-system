@@ -1059,7 +1059,7 @@ __metadata:
     ava: "npm:^6.2.0"
     lit: "npm:^3.2.1"
     typescript: "npm:^5.7.3"
-    wireit: "npm:^0.14.9"
+    wireit: "npm:^0.14.10"
   languageName: unknown
   linkType: soft
 
@@ -1587,12 +1587,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^22.10.9":
-  version: 22.10.9
-  resolution: "@types/node@npm:22.10.9"
+"@types/node@npm:^22.12.0":
+  version: 22.12.0
+  resolution: "@types/node@npm:22.12.0"
   dependencies:
     undici-types: "npm:~6.20.0"
-  checksum: 10c0/ed2d7b2cf20ce520e04711eab48e9cd7d6a835d2859fbdc5d9a8c5e00a97c1f872a409f789783c473062b29beaf1cddf4b1c7ad03ae3fe433b072b7cf9fff741
+  checksum: 10c0/be220706732d95db2ed1c441c1e64cab90bf9a47519ce6f4c79cc5a9ec9d5c517131a149a9ac30afac1a30103e67e3a00d453ba7c1b0141608a3a7ba6397c303
   languageName: node
   linkType: hard
 
@@ -2893,7 +2893,7 @@ __metadata:
     "@nexim/eslint-config": "npm:^1.1.1"
     "@nexim/prettier-config": "npm:^1.1.0"
     "@nexim/typescript-config": "npm:^2.0.0"
-    "@types/node": "npm:^22.10.9"
+    "@types/node": "npm:^22.12.0"
     "@typescript-eslint/eslint-plugin": "npm:^7.15.0"
     "@typescript-eslint/parser": "npm:^7.15.0"
     ava: "npm:^6.2.0"
@@ -2904,9 +2904,9 @@ __metadata:
     eslint-plugin-require-extensions: "npm:^0.1.3"
     prettier: "npm:^3.4.2"
     prettier-plugin-packagejson: "npm:^2.5.8"
-    prettier-plugin-tailwindcss: "npm:^0.6.10"
+    prettier-plugin-tailwindcss: "npm:^0.6.11"
     typescript: "npm:^5.7.3"
-    wireit: "npm:^0.14.9"
+    wireit: "npm:^0.14.10"
   dependenciesMeta:
     prettier-plugin-tailwindcss@0.6.9:
       unplugged: true
@@ -6177,9 +6177,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier-plugin-tailwindcss@npm:^0.6.10":
-  version: 0.6.10
-  resolution: "prettier-plugin-tailwindcss@npm:0.6.10"
+"prettier-plugin-tailwindcss@npm:^0.6.11":
+  version: 0.6.11
+  resolution: "prettier-plugin-tailwindcss@npm:0.6.11"
   peerDependencies:
     "@ianvs/prettier-plugin-sort-imports": "*"
     "@prettier/plugin-pug": "*"
@@ -6231,7 +6231,7 @@ __metadata:
       optional: true
     prettier-plugin-svelte:
       optional: true
-  checksum: 10c0/9e1e8d59285acb915c647235867e0c6da4f66e60a05984375036998c207662988cb59a362390f86050c09863e4ee982102dfcffb0131cc1413aec1b7d1d8fb08
+  checksum: 10c0/e5688a86f457b4eaa682d83a86702826d2d828db4cfc153b8b1f0b8409c94530a4bde8deb3e819497ba8e4bd0eda08ed55468a41a8138f82db43d633cf332121
   languageName: node
   linkType: hard
 
@@ -7768,9 +7768,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"wireit@npm:^0.14.9":
-  version: 0.14.9
-  resolution: "wireit@npm:0.14.9"
+"wireit@npm:^0.14.10":
+  version: 0.14.10
+  resolution: "wireit@npm:0.14.10"
   dependencies:
     brace-expansion: "npm:^4.0.0"
     chokidar: "npm:^3.5.3"
@@ -7779,7 +7779,7 @@ __metadata:
     proper-lockfile: "npm:^4.1.2"
   bin:
     wireit: bin/wireit.js
-  checksum: 10c0/0c80f6564e4a09b0f9a49aff75d44bb0c64f1988fd5580253fd6cf3de900d398207975ab20b4fbca51302583c4b4f0f74b7888cb2c5f08281b1611e182799003
+  checksum: 10c0/27263ead76cbc3173012f97413efef76e210cfa1d2a217e88e823ea93ff2cc7e1f9b3dcb0d453132f6d8573eb3e27d3945e098349b09565fa0c4468757443b7f
   languageName: node
   linkType: hard
 
